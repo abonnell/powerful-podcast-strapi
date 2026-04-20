@@ -1,0 +1,16 @@
+/**
+ * Utrecht Design System styles for TipTap Editor
+ * Import all necessary CSS for @frameless/strapi-tiptap-editor
+ */
+
+/* Import root CSS variables - applies to :root */
+@import '@utrecht/design-tokens/dist/root.css';
+
+/* Import theme CSS variables - applies to .utrecht-theme */
+@import '@utrecht/design-tokens/dist/index.css';
+
+/* Import all Utrecht component styles */
+@import '@utrecht/component-library-css/dist/index.css';
+
+/* Import HTML semantic element styles */
+@import '@utrecht/component-library-css/dist/html.css';

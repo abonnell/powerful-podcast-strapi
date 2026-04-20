@@ -1,10 +1,8 @@
 import type { StrapiApp } from '@strapi/strapi/admin';
 
-// Explicitly import Utrecht CSS for production builds
-// These are required by @frameless/strapi-tiptap-editor
-import '@utrecht/design-tokens/dist/index.css';
-import '@utrecht/design-tokens/dist/dark/index.css';
-import '@utrecht/component-library-css/dist/html.css';
+// Import Utrecht CSS for TipTap editor styling
+// This CSS file contains all necessary Utrecht design system styles
+import './utrecht-styles.css';
 
 export default {
   config: {
