@@ -15,7 +15,7 @@
     "upgrade:dry": "npx @strapi/upgrade latest --dry"
   },
   "dependencies": {
-    "@frameless/strapi-tiptap-editor": "^1.0.2",
+    "@notum-cz/strapi-plugin-tiptap-editor": "^1.2.3",
     "@strapi/plugin-cloud": "5.42.1",
     "@strapi/plugin-users-permissions": "5.42.1",
     "@strapi/strapi": "5.42.1",
@@ -34,6 +34,9 @@
   "engines": {
     "node": ">=18.0.0 <=22.x.x",
     "npm": ">=6.0.0"
+  },
+  "resolutions": {
+    "react-intl": "6.6.2"
   },
   "strapi": {
     "uuid": "45e1c4f1-7b92-46b7-ba61-91e1d4441ffd"
