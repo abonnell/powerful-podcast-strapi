@@ -3,9 +3,14 @@
  */
 
 import type { Core } from '@strapi/strapi';
+import type { Context } from 'koa';
 
-export default (config: any, { strapi }: { strapi: Core.Strapi }) => {
-  return async (ctx: any, next: any) => {
+interface MiddlewareConfig {
+  [key: string]: unknown;
+}
+
+export default (config: MiddlewareConfig, { strapi }: { strapi: Core.Strapi }) => {
+  return async (ctx: Context, next: () => Promise<any>) => {
     if (!ctx.query.populate) {
       ctx.query.populate = ["createdBy", "updatedBy"];
     }

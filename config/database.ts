@@ -1,6 +1,15 @@
 import path from 'path';
 
-export default ({ env }) => {
+type DatabaseClient = 'mysql' | 'postgres' | 'sqlite';
+
+interface Env {
+  (key: string, defaultValue?: any): string;
+  bool(key: string, defaultValue?: boolean): boolean;
+  int(key: string, defaultValue?: number): number;
+  array(key: string, defaultValue?: any[]): any[];
+}
+
+export default ({ env }: { env: Env }) => {
   const client = env('DATABASE_CLIENT', 'sqlite');
 
   const connections = {
@@ -53,7 +62,7 @@ export default ({ env }) => {
   return {
     connection: {
       client,
-      ...connections[client],
+      ...connections[client as DatabaseClient],
       acquireConnectionTimeout: env.int('DATABASE_CONNECTION_TIMEOUT', 60000),
     },
   };
