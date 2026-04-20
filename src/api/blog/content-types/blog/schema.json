@@ -8,8 +8,7 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true,
-    "populateCreatorFields": true
+    "draftAndPublish": true
   },
   "pluginOptions": {
     "i18n": {
@@ -31,11 +30,9 @@
     },
     "Body": {
       "type": "customField",
-      "customField": "plugin::strapi-tiptap-editor.strapi-tiptap-editor",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
+      "customField": "plugin::tiptap-editor.RichText",
+      "options": {
+        "preset": "full"
       }
     }
   }
