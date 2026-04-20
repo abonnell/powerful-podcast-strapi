@@ -16,6 +16,8 @@
   },
   "dependencies": {
     "@frameless/strapi-tiptap-editor": "^1.0.2",
+    "@strapi/design-system": "^2.0.0",
+    "@strapi/icons": "^2.0.0",
     "@strapi/plugin-cloud": "5.11.1",
     "@strapi/plugin-users-permissions": "5.11.1",
     "@strapi/strapi": "5.11.1",
