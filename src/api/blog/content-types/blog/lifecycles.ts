@@ -1,6 +1,6 @@
 /**
  * Blog content type lifecycles
- * Automatically triggers Next.js revalidation when blogs are published or updated
+ * Automatically triggers Next.js revalidation when blogs are published, updated, unpublished, or deleted
  */
 
 export default {
@@ -18,12 +18,24 @@ export default {
 
   /**
    * Triggered after a blog is updated
+   * This includes both regular updates and unpublish actions
    */
   async afterUpdate(event) {
     const { result } = event;
     
-    // Only trigger revalidation if the blog is published
-    if (result.publishedAt) {
+    // Trigger revalidation for both published and unpublished blogs
+    // When unpublished, we need to clear the cache
+    await triggerRevalidation(result);
+  },
+
+  /**
+   * Triggered after a blog is deleted
+   */
+  async afterDelete(event) {
+    const { result } = event;
+    
+    // Trigger revalidation to clear the deleted blog from cache
+    if (result) {
       await triggerRevalidation(result);
     }
   },
