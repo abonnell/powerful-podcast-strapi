@@ -7,6 +7,8 @@ This Strapi instance is configured to automatically trigger on-demand revalidati
 The blog content type includes lifecycle hooks that automatically send revalidation requests to your Next.js application whenever:
 - A new blog post is published
 - An existing blog post is updated
+- A blog post is unpublished
+- A blog post is deleted
 
 This ensures your Next.js site immediately reflects the latest content without requiring a full rebuild.
 
@@ -60,10 +62,12 @@ strapi/src/api/blog/content-types/blog/lifecycles.ts
 
 ### Lifecycle Hooks
 - **`afterCreate`**: Triggers revalidation when a new blog is created and published
-- **`afterUpdate`**: Triggers revalidation when an existing blog is updated (if published)
+- **`afterUpdate`**: Triggers revalidation when an existing blog is updated or unpublished
+- **`afterDelete`**: Triggers revalidation when a blog is deleted
 
 ### What Gets Revalidated
 When a blog is published/updated, the following Next.js paths are revalidated:
+- `/` - Home page
 - `/blog` - Main blog listing page
 - `/blog/[slug]` - Individual blog post page
 - `/gallery/blogs` - Blog gallery page
